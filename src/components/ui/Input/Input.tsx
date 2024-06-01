@@ -17,7 +17,6 @@ const Input: FC<InputProps> = ({
   value,
   name,
   placeholder,
-  error,
   disabled,
   onChange,
 }) => {

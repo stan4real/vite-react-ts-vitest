@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { useAppDispatch, useAppSelector } from '../app/hooks'
+import React, { useState } from 'react'
 import useApi from '../utils/useApi'
 import DeviceList from './DeviceList'
 import Loader from '../utils/loader'
