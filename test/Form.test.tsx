@@ -71,7 +71,7 @@ describe(('Form inputs unit test'), () => {
     it('should validate password', async () => {
         render(<Form/>)
         const passInput:HTMLInputElement = screen.getByPlaceholderText(/Password/i)
-        fireEvent.change(passInput, {target : {value: '123321'}})
+        fireEvent.change(passInput, {target : {value: '12331'}})
         expect(validatePassInput(passInput.value)).toBeTruthy()
     })
     

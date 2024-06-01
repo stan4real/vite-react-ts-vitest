@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Users } from './types'
+import { PASSWORD, USERNAME } from './secret'
 
 
 
@@ -11,8 +12,8 @@ export default function useApi (){
         
     const api = axios.create({
         auth:{
-            username:'test@test.test',
-            password:'123321'
+            username:USERNAME,
+            password:PASSWORD
         }
     })
 useEffect(() => {
