@@ -4,15 +4,15 @@ import DeviceList from './DeviceList'
 import Loader from '../utils/loader'
 import Input from './ui/Input/Input'
 
+
+
 const SearchBar = () => {
-    const {users, isLoading} = useApi()
     const [searchInput, setSearchInput] = useState('')
+    const {users, isLoading} = useApi()
     
-    
-    const filteredItems = users.filter( user => {
-        return user.id.toString().includes(searchInput.toString())
-    })
-    
+      const filteredItems = (users.filter( user =>  user.id.toString().includes(searchInput.toString())))
+      
+
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>
     ) => {
         e.preventDefault()
