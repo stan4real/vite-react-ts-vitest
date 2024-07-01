@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRouteError, isRouteErrorResponse, Link } from 'react-router-dom';
-import { Button } from "../components/ui/Button/Button"
+import Button from '../components/ui/Button/Button';
 
 const ErrorPage: React.FC = () => {
   // you don't need to explicitly set error to `unknown`
@@ -25,9 +25,10 @@ const ErrorPage: React.FC = () => {
       <p className='text-slate-500'>
         <i>{errorMessage}</i>
       </p>
-      <Link to ='/devicelist'>
-        <Button className='btn-outlined'>
-          To dashboard
+      <Link to ='/vite-react-ts-vitest/devicelist'>
+        <Button
+        className='btn-outlined'
+        name='К работе'>
         </Button>
       </Link>
     </div>

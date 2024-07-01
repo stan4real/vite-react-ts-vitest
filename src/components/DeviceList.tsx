@@ -8,7 +8,7 @@ const DeviceList = ({filteredItems}:filteredItems) => {
 
   return (
     <div>
-        <table className="min-w-full text-left">
+        <table className="min-w-full  text-left">
   <thead className="border-b">
     <tr>
       <th className="px-4 py-4">ID</th>

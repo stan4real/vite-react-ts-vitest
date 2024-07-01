@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router"
-import { Button } from "./ui/Button/Button"
+import Input from "./ui/Input/Input"
+import { fakeAcc } from "../utils/secret"
+import Button from "./ui/Button/Button"
+
 const Form = () => {
   const [email, setEmail] = useState('')
   const [pass,setPassword] = useState('')
@@ -11,19 +14,14 @@ const Form = () => {
   const [validForm,setValidForm] =useState(false)
   const navigate = useNavigate()
   
-  const fakeAcc= {
-    username:'test@test.test',
-    password:'123321'
-  }
+  
 
   useEffect(()=> {
-    console.log(validForm)
     if (emailError || passError) {
       setValidForm(false)
     } else {
       setValidForm(true)
     }
-    console.log(`EmailError = ${emailError}`, `PassError = ${passError}`, `validForm = ${validForm}`)
   }, [emailError, passError])
 
   const blurHandler = (e:React.FocusEvent<HTMLInputElement>) => {
@@ -63,19 +61,18 @@ const Form = () => {
         alert('Incorrect Data')
       }
     }
-    
+    setEmail('')
+    setPassword('')
   }
 
   return (
 <div className="ml-auto mr-auto w-full max-w-xs">
   <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
     <div className="mb-4">
-      <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-        Email
-      </label>
-      <input 
+      <Input 
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:ring-1 focus:ring-inset" 
         value={email}
+        label="Email"
         name="email" 
         type="text" 
         placeholder="Email"
@@ -85,28 +82,26 @@ const Form = () => {
         {(emailDirty && emailError) && <div data-testid='blurhelper' className='text-red-500 text-xs p-1'> {emailError}</div>}
     </div>
     <div className="mb-6">
-      <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password" >
-        Password
-      </label>
-      <input 
+      <Input 
         className="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:ring-1 focus:ring-inset" 
         value={pass}
+        label="Password"
         name="password" 
-        type="password"
         autoComplete="on"
+        type="password"
         placeholder="Password"
         onChange={passHandler}
         onBlur={blurHandler}
         />
         {(passDirty && passError) && <div data-testid='blurhelper2' className='text-red-500 text-xs'> {passError}</div>}
     </div>
-    <div className="flex flex-col gap-y-4">
-      <Button className="btn-primary" disabled={!validForm} type="submit">
-        Sign In
-      </Button>
-      <a className=" text-center inline-block ml-2 align-baseline font-bold text-sm text-slate-900 hover:text-slate-600" href="#">
-        Forgot Password?
-      </a>
+    <div className="flex">
+      <Button
+      type="submit"
+      className='btn-primary'
+      disabled={!validForm}
+      name='Вход'
+      />
     </div>
     
   </form>

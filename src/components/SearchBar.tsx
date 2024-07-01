@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import useApi from '../utils/useApi'
 import DeviceList from './DeviceList'
 import Loader from '../utils/loader'
+import Input from './ui/Input/Input'
 
 const SearchBar = () => {
     const {users, isLoading} = useApi()
@@ -20,12 +21,12 @@ const SearchBar = () => {
     
   return (
     <div>
-        <input 
+        <Input 
         type='search'
-        placeholder='Search ...'
+        className='p-2 border ml-2 mt-2 shadow-sm'
+        placeholder='Поиск по ID...'
         onChange={handleChange}
         value={searchInput}
-        className='p-2 border ml-2 mt-2 shadow-sm'
         />
         {isLoading ? <Loader/>:
         <DeviceList filteredItems={filteredItems}/>
